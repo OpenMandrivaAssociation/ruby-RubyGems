@@ -3,14 +3,14 @@
 %define	name	ruby-%{rname}
 
 %define	version	0.9.0
-%define	release	%mkrel 2
+%define	release	%mkrel 3
 
 Summary:	Ruby package manager
 Name:		%name
 Version:	%version
 Release:	%release
 License:	GPL
-Group:		Development/Other
+Group:		Development/Ruby
 URL: 		http://docs.rubygems.org/
 Source0:	%{oname}-%{version}.tar.bz2
 Patch0:		rubygems-0.8.11-post.patch
@@ -20,10 +20,6 @@ BuildRequires:	ruby-devel
 Requires:	ruby
 Provides:	%{oname}
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-
-%define	ruby_archdir	%(ruby -rrbconfig -e 'puts Config::CONFIG["sitearchdir"]')
-%define	ruby_libdir	%(ruby -rrbconfig -e 'puts Config::CONFIG["sitelibdir"]')
-%define	ruby_gemdir	%{_libdir}/ruby/gems/%(ruby -r rbconfig -e 'print Config::CONFIG["ruby_version"]')
 
 %description
 RubyGems is the Ruby standard for publishing and managing third party
@@ -42,7 +38,7 @@ mkdir -p %buildroot%{ruby_gemdir}
 ruby setup.rb install --prefix=%buildroot
 DESTDIR=%buildroot ruby manual-post.rb
 
-for f in `find %buildroot%{ruby_libdir} -name \*.rb`
+for f in `find %buildroot%{ruby_sitelibdir} -name \*.rb`
 do
 	if head -n1 "$f" | grep '^#!' >/dev/null;
 	then
@@ -61,6 +57,6 @@ rm -rf %buildroot
 %defattr(-,root,root)
 %doc README*
 %attr(755,root,root) %{_bindir}/*
-%{ruby_libdir}/*
+%{ruby_sitelibdir}/*
 %{ruby_gemdir}
 
