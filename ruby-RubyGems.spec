@@ -19,6 +19,7 @@ BuildArch:	noarch
 BuildRequires:	ruby-devel
 Requires:	ruby
 Provides:	%{oname}
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 RubyGems is the Ruby standard for publishing and managing third party
