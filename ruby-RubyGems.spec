@@ -2,8 +2,8 @@
 %define	oname	rubygems
 %define	name	ruby-%{rname}
 
-%define	version	0.9.0
-%define	release	%mkrel 3
+%define	version	1.0.1
+%define	release	%mkrel 1
 
 Summary:	Ruby package manager
 Name:		%name
@@ -12,9 +12,7 @@ Release:	%release
 License:	GPL
 Group:		Development/Ruby
 URL: 		http://docs.rubygems.org/
-Source0:	%{oname}-%{version}.tar.bz2
-Patch0:		rubygems-0.8.11-post.patch
-Patch1:		rubygems-0.9.0-gemsdir.patch
+Source0:	%{oname}-%{version}.tgz
 BuildArch:	noarch
 BuildRequires:	ruby-devel
 Requires:	ruby
@@ -27,16 +25,13 @@ libraries.
 
 %prep
 %setup -q -n rubygems-%{version}
-%patch0 -p1
-%patch1 -p1 -b .gemsdir
-ruby setup.rb config
-ruby setup.rb setup
 
 %install
 rm -rf %buildroot
 mkdir -p %buildroot%{ruby_gemdir}
-ruby setup.rb install --prefix=%buildroot
-DESTDIR=%buildroot ruby manual-post.rb
+ruby setup.rb --prefix=%buildroot/%_prefix
+mkdir -p %buildroot%{ruby_sitelibdir}
+mv %buildroot/%_prefix/lib/{*.rb,rubygems,rbconfig} %buildroot%{ruby_sitelibdir}
 
 for f in `find %buildroot%{ruby_sitelibdir} -name \*.rb`
 do
