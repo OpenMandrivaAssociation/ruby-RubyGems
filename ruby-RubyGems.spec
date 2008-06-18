@@ -3,7 +3,7 @@
 %define	name	ruby-%{rname}
 
 %define	version	1.0.1
-%define	release	%mkrel 1
+%define	release	%mkrel 2
 
 Summary:	Ruby package manager
 Name:		%name
