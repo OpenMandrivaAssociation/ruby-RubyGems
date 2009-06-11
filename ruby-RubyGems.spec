@@ -1,8 +1,8 @@
-%define rname RubyGems
+%define rname	RubyGems
 %define	oname	rubygems
 %define	name	ruby-%{rname}
 
-%define	version	1.3.1
+%define	version	1.3.4
 %define	release	%mkrel 1
 
 Summary:	Ruby package manager
