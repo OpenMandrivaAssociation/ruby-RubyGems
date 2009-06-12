@@ -3,7 +3,7 @@
 %define	name	ruby-%{rname}
 
 %define	version	1.3.4
-%define	release	%mkrel 1
+%define	release	%mkrel 2
 
 Summary:	Ruby package manager
 Name:		%name
@@ -25,6 +25,9 @@ libraries.
 
 %prep
 %setup -q -n rubygems-%{version}
+
+# gems are installed in /usr/lib even on x86_64 
+%__sed -ie "s,ConfigMap\[:libdir\],\'/usr/lib\'," lib/rubygems/defaults.rb
 
 %install
 rm -rf %buildroot
