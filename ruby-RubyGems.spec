@@ -2,8 +2,8 @@
 %define	oname	rubygems
 %define	name	ruby-%{rname}
 
-%define	version	1.3.4
-%define	release	%mkrel 2
+%define	version	1.3.5
+%define	release	%mkrel 1
 
 Summary:	Ruby package manager
 Name:		%name
@@ -12,7 +12,7 @@ Release:	%release
 License:	GPL
 Group:		Development/Ruby
 URL: 		http://docs.rubygems.org/
-Source0:	%{oname}-%{version}.tgz
+Source0:	http://rubyforge.org/frs/download.php/60718/%{oname}-%{version}.tgz
 BuildArch:	noarch
 BuildRequires:	ruby-devel
 Requires:	ruby
