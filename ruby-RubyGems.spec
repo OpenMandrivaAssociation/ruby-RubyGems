@@ -3,7 +3,7 @@
 %define	name	ruby-%{rname}
 
 %define	version	1.3.5
-%define	release	%mkrel 2
+%define	release	%mkrel 3
 
 Summary:	Ruby package manager
 Name:		%name
@@ -16,7 +16,7 @@ Source0:	http://rubyforge.org/frs/download.php/60718/%{oname}-%{version}.tgz
 BuildArch:	noarch
 BuildRequires:	ruby-devel
 Requires:	ruby
-Provides:	%{oname}
+Provides:	%{oname} = %{version}
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
