@@ -1,14 +1,10 @@
 %define rname	RubyGems
 %define	oname	rubygems
-%define	name	ruby-%{rname}
-
-%define	version	1.3.5
-%define	release	%mkrel 3
 
 Summary:	Ruby package manager
-Name:		%name
-Version:	%version
-Release:	%release
+Name:		ruby-%{rname}
+Version:	1.3.5
+Release:	%mkrel 3
 License:	GPL
 Group:		Development/Ruby
 URL: 		http://docs.rubygems.org/
