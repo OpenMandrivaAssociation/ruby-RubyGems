@@ -3,8 +3,8 @@
 
 Summary:	Ruby package manager
 Name:		ruby-%{rname}
-Version:	1.3.5
-Release:	%mkrel 3
+Version:	1.3.7
+Release:	%mkrel 1
 License:	GPL
 Group:		Development/Ruby
 URL: 		http://docs.rubygems.org/
