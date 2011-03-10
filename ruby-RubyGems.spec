@@ -3,7 +3,7 @@
 
 Summary:	Ruby package manager
 Name:		ruby-%{rname}
-Version:	1.3.7
+Version:	1.6.1
 Release:	%mkrel 1
 License:	GPL
 Group:		Development/Ruby
