@@ -10,7 +10,7 @@ Group:		Development/Ruby
 URL: 		http://docs.rubygems.org/
 Source0:	http://rubyforge.org/frs/download.php/60718/%{oname}-%{version}.tgz
 BuildArch:	noarch
-BuildRequires:	ruby-devel
+BuildRequires:	ruby
 Requires:	ruby
 Provides:	%{oname} = %{version}
 BuildRoot:	%{_tmppath}/%{name}-buildroot
