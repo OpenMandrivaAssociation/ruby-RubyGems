@@ -4,16 +4,19 @@
 Summary:	Ruby package manager
 Name:		ruby-%{rname}
 Version:	1.7.2
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		Development/Ruby
-URL: 		http://docs.rubygems.org/
+URL:		http://docs.rubygems.org/
 Source0:	http://rubyforge.org/frs/download.php/60718/%{oname}-%{version}.tgz
 BuildArch:	noarch
 BuildRequires:	ruby
 Requires:	ruby
 Provides:	%{oname} = %{version}
 BuildRoot:	%{_tmppath}/%{name}-buildroot
+Patch0:		rubygems-1.7.2-fix-gemspec-with-Z-dateformat.patch
+Patch1:		rubygems-1.7.2-read-gemspec-with-Z-dateformat.patch
+
 
 %description
 RubyGems is the Ruby standard for publishing and managing third party
@@ -22,8 +25,14 @@ libraries.
 %prep
 %setup -q -n rubygems-%{version}
 
+%patch0 -p1 -b .fixZ
+%patch1 -p1 -b .readZ
+
+
 # gems are installed in /usr/lib even on x86_64 
 %__sed -ie "s,ConfigMap\[:libdir\],\'/usr/lib\'," lib/rubygems/defaults.rb
+
+%build
 
 %install
 rm -rf %buildroot
@@ -53,4 +62,3 @@ rm -rf %buildroot
 %attr(755,root,root) %{_bindir}/*
 %{ruby_sitelibdir}/*
 %{ruby_gemdir}
-
