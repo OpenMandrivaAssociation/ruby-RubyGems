@@ -4,7 +4,7 @@
 Summary:	Ruby package manager
 Name:		ruby-%{rname}
 Version:	1.7.2
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPL
 Group:		Development/Ruby
 URL:		http://docs.rubygems.org/
