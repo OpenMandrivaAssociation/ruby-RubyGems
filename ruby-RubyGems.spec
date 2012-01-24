@@ -3,8 +3,8 @@
 
 Summary:	Ruby package manager
 Name:		ruby-%{rname}
-Version:	1.8.10
-Release:	%mkrel 1
+Version:	1.8.15
+Release:	1
 License:	GPL
 Group:		Development/Ruby
 URL:		http://docs.rubygems.org/
@@ -13,7 +13,6 @@ BuildArch:	noarch
 BuildRequires:	ruby
 Requires:	ruby
 Provides:	%{oname} = %{version}
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 Patch0:		rubygems-1.7.2-fix-gemspec-with-Z-dateformat.patch
 Patch1:		rubygems-1.7.2-read-gemspec-with-Z-dateformat.patch
 
@@ -27,7 +26,6 @@ libraries.
 
 %patch0 -p1 -b .fixZ
 %patch1 -p1 -b .readZ
-
 
 # gems are installed in /usr/lib even on x86_64 
 %__sed -ie "s,ConfigMap\[:libdir\],\'/usr/lib\'," lib/rubygems/defaults.rb
@@ -52,12 +50,7 @@ do
 	fi
 done
 
-
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc README*
 %attr(755,root,root) %{_bindir}/*
 %{ruby_sitelibdir}/*
