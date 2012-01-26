@@ -4,7 +4,7 @@
 Summary:	Ruby package manager
 Name:		ruby-%{rname}
 Version:	1.8.15
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Ruby
 URL:		http://docs.rubygems.org/
@@ -33,7 +33,6 @@ libraries.
 %build
 
 %install
-rm -rf %buildroot
 mkdir -p %buildroot%{ruby_gemdir}
 ruby setup.rb --prefix=%buildroot/%_prefix
 mkdir -p %buildroot%{ruby_sitelibdir}
