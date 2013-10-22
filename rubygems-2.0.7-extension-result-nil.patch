@@ -1,0 +1,16 @@
+--- rubygems-2.0.7/lib/rubygems/installer.rb~	2013-08-19 19:02:48.419155049 +0800
++++ rubygems-2.0.7/lib/rubygems/installer.rb	2013-08-19 19:04:19.301740410 +0800
+@@ -689,11 +689,11 @@
+             results = builder.build(extension, gem_dir, dest_path,
+                                     results, @build_args)
+ 
+-            say results.join("\n") if Gem.configuration.really_verbose
++            say (results ? results.join("\n") : "") if Gem.configuration.really_verbose
+           end
+         end
+       rescue
+-        extension_build_error(extension_dir, results.join("\n"), $@)
++        extension_build_error(extension_dir, (results ? results.join("\n") : ""), $@)
+       end
+     end
+   end
