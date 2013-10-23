@@ -12,12 +12,12 @@
 # http://rpm.org/ticket/78
 %define gem_extdir %{_exec_prefix}/lib{,64}/gems
 
-%bcond_with	bootstrap
+%bcond_without	bootstrap
 
 Summary:	Ruby package manager
 Name:		ruby-%{rname}
 Version:	2.0.10
-Release:	%mkrel 1
+Release:	1
 License:	GPLv2+
 Group:		Development/Ruby
 URL:		http://docs.rubygems.org/
