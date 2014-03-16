@@ -17,7 +17,7 @@
 Summary:	Ruby package manager
 Name:		ruby-%{rname}
 Version:	2.0.10
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Development/Ruby
 URL:		http://docs.rubygems.org/
@@ -52,6 +52,7 @@ BuildRequires:	rubygem(rdoc)
 %endif
 Requires:	locales
 Requires:	ruby
+Requires:	ruby-json
 %if !%{with bootstrap}
 Requires:	rubygem(rdoc)
 %endif
