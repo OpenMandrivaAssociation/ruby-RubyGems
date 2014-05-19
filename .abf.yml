@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   rubygems-2.0.10.tgz: e4119824649771958038b2347485df85c3a09fc6
+sources:
+  rubygems-2.2.2.tgz: 3fad1f6415ba92594fe4b42903f3a2938cefbadf

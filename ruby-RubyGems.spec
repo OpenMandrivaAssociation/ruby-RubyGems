@@ -16,8 +16,8 @@
 
 Summary:	Ruby package manager
 Name:		ruby-%{rname}
-Version:	2.0.10
-Release:	2
+Version:	2.2.2
+Release:	1
 License:	GPLv2+
 Group:		Development/Ruby
 URL:		http://docs.rubygems.org/
@@ -25,23 +25,6 @@ Source0:	http://production.cf.rubygems.org/rubygems/%{oname}-%{version}.tgz
 Source1:	ruby-RubyGems.rpmlintrc
 # Sources from the works by Vít Ondruch <vondruch@redhat.com>
 Source100:	operating_system.rb
-# Add support for installing binary extensions according to FHS.
-# https://github.com/rubygems/rubygems/issues/210
-# Note that 8th patch might be resolved by
-# https://bugs.ruby-lang.org/issues/7897
-Patch109: rubygems-2.0.0-binary-extensions.patch
-# This slightly changes behavior of "gem install --install-dir" behavior.
-# Without this patch, Specifications.dirs is modified and gems installed on
-# the system cannot be required anymore. This causes later issues when RDoc
-# documentation should be generated, since json gem is sudenly not accessible.
-# https://github.com/rubygems/rubygems/pull/452
-#Patch113: rubygems-2.0.5-Do-not-modify-global-Specification.dirs-during-install.patch
-# This prevents issues, when ruby configuration specifies --with-ruby-version=''.
-# https://github.com/rubygems/rubygems/pull/455
-#Patch114: rubygems-2.0.5-Fixes-for-empty-ruby-version.patch
-# It seems that with rubygem 2.0.5, when building C extension
-# results can be nil
-Patch115: rubygems-2.0.7-extension-result-nil.patch
 
 BuildArch:	noarch
 BuildRequires:	ruby
