@@ -17,7 +17,7 @@
 Summary:	Ruby package manager
 Name:		ruby-%{rname}
 Version:	2.2.2
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Development/Ruby
 URL:		http://docs.rubygems.org/
