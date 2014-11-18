@@ -16,8 +16,8 @@
 
 Summary:	Ruby package manager
 Name:		ruby-%{rname}
-Version:	2.2.2
-Release:	3
+Version:	2.4.4
+Release:	1
 License:	GPLv2+
 Group:		Development/Ruby
 URL:		http://docs.rubygems.org/
@@ -28,6 +28,7 @@ Source100:	operating_system.rb
 
 BuildArch:	noarch
 BuildRequires:	ruby
+BuildRequires:	ruby-psych
 BuildRequires:	locales-en
 # If !%{with bootstrap} installed rubygem may be boostrap and not require it
 %if !%{with bootstrap}
