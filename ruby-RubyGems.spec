@@ -49,7 +49,7 @@ libraries.
 
 %prep
 %setup -q -n rubygems-%{version}
-%apply_patches
+%autopatch -p1
 
 %install
 LANG=en_US.UTF-8 GEM_HOME=%{buildroot}/%{gem_dir} \
